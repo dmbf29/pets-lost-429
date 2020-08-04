@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="col">
+    <div class="d-flex justify-content-between ali">
+      <h1>Pets</h1>
+      <%= link_to new_pet_path do %>
+        <i class="fas fa-plus-square"></i>
+      <% end %>
+    </div>
+    <div class="cards">
+      <% @pets.each do |pet| %>
+        <div class="card-product">
+          <div class="card-product-infos">
+            <h2><%= link_to pet.name, pet_path(pet) %></h2>
+            <p><%= pet.species %> - <strong><%= pet.address %></strong></p>
+            <p>Found <%= pet.found_days_ago %> days ago</p>
+            <% if pet.dead? %>
+              <i class="fas fa-skull-crossbones"></i>
+            <% else %>
+              <i class="fas fa-thumbs-up"></i>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
